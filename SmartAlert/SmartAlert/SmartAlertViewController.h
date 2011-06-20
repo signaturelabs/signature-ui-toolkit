@@ -18,9 +18,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SmartAlertViewController : UIViewController {
-    
+    int count;
+    NSTimer *timer;
 }
 
 -(IBAction) showAlert;
--(void) showAlert:(NSString *)message;
+-(void) fireAlert;
+-(void)timerEvent:(NSTimer *)timer;
 @end

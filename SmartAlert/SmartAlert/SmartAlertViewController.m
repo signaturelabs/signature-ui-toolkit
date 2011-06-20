@@ -22,24 +22,25 @@
 @implementation SmartAlertViewController
 
 -(IBAction) showAlert {
-    for(int i = 0; i < 5; i++){
-        NSString *msg = [[NSString alloc] initWithFormat:@"%i new messages.",i];
-        [self performSelectorInBackground:@selector(showAlert:) withObject:msg];
-        [msg release];
-        
-        sleep(1);
-        
+    count = 0;
+    NSRunLoop *runner = [NSRunLoop currentRunLoop];
+    [runner addTimer:timer forMode: NSDefaultRunLoopMode];
+}
+-(void)timerEvent:(NSTimer *)_timer {
+    if(count < 5){
+        [self fireAlert];
     }
+    count++;
 }
 
-
--(void) showAlert:(NSString *)message {
-    [SmartAlert showAlert:message forKey:@"message" withMode:@"replace"];
+-(void) fireAlert {   
+    [SmartAlert showAlert:@"Test message" forKey:@"message" withMode:@"replace"];
 }
 
 - (void)dealloc
 {
     [super dealloc];
+    timer = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +55,17 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    count = 99999;
+    
+    NSMethodSignature *sgn = [self methodSignatureForSelector:@selector(timerEvent:)];
+    NSInvocation *inv = [NSInvocation invocationWithMethodSignature: sgn];
+    [inv setTarget: self];
+    [inv setSelector:@selector(timerEvent:)];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 invocation:inv repeats:YES];
+    
+    
+    
+    
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
