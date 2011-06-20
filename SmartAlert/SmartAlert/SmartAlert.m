@@ -57,14 +57,12 @@ static SmartAlert *shared = nil;
     
     id test = [sa.alerts objectForKey:key];
     if(test == nil || [test isKindOfClass:[NSNull class]]){
+        
+        // Fire a basic first alert
         [SmartAlert showAlert:_alert forKey:key];
-        /*
-        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"Smart Alert" message:_alert delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [al show];
-        [sa.alerts setObject:al forKey:key];
-        [al release];
-         */
+        
     }else{
+        
         NSMutableDictionary *dict = (NSMutableDictionary *)test;
         UIAlertView *al = [dict objectForKey:@"alertView"];
         NSNumber *count = (NSNumber *)[dict objectForKey:@"count"];

@@ -15,6 +15,18 @@
  
  */
 
+/*********************************************************************
+
+ ATTENTION
+ 
+ This file is just to demonstrate how SmartAlert handles alerts coming
+ from the background.  All you need to do is call:
+ 
+ [SmartAlert showAlert:@"Your Message"
+             forKey:@"msg_key" 
+             withMode:@"replace||append"];
+ 
+*********************************************************************/
 
 #import "SmartAlertViewController.h"
 #import "SmartAlert.h"
@@ -55,6 +67,17 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    
+    /*
+     * OK, We're doing a scheduled timer and attaching it to the run loop because 
+     * we want to simulate something happening in the background causing a new alert
+     * to be triggered.  This would mimic the behavior or a push notification, or some
+     * repeating alert in your app.  You dont need to implement anything in this file other
+     * than the line of code fired in -(void) fireAlert;
+     */
+    
+    // Set high count so alerts dont fire in the run loop until user clicks ok
     count = 99999;
     
     NSMethodSignature *sgn = [self methodSignatureForSelector:@selector(timerEvent:)];
