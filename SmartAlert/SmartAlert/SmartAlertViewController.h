@@ -13,5 +13,5 @@
 }
 
 -(IBAction) showAlert;
-
+-(void) showAlert:(NSString *)message;
 @end

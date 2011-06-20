@@ -14,11 +14,18 @@
 -(IBAction) showAlert {
     for(int i = 0; i < 5; i++){
         NSString *msg = [[NSString alloc] initWithFormat:@"%i new messages.",i];
-        [SmartAlert showAlert:msg forKey:@"message" withMode:@"replace"];
+        [self performSelectorInBackground:@selector(showAlert:) withObject:msg];
         [msg release];
+        
+        sleep(1);
+        
     }
 }
 
+
+-(void) showAlert:(NSString *)message {
+    [SmartAlert showAlert:message forKey:@"message" withMode:@"replace"];
+}
 
 - (void)dealloc
 {
