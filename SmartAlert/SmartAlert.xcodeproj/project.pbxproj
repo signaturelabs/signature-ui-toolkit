@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1073E72713AEC8DF00EBF5D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1073E72613AEC8DF00EBF5D5 /* UIKit.framework */; };
+		1073E72913AEC8DF00EBF5D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1073E72813AEC8DF00EBF5D5 /* Foundation.framework */; };
+		1073E72B13AEC8DF00EBF5D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1073E72A13AEC8DF00EBF5D5 /* CoreGraphics.framework */; };
+		1073E73113AEC8DF00EBF5D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1073E72F13AEC8DF00EBF5D5 /* InfoPlist.strings */; };
+		1073E73413AEC8DF00EBF5D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073E73313AEC8DF00EBF5D5 /* main.m */; };
+		1073E73713AEC8DF00EBF5D5 /* SmartAlertAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073E73613AEC8DF00EBF5D5 /* SmartAlertAppDelegate.m */; };
+		1073E73A13AEC8DF00EBF5D5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1073E73813AEC8DF00EBF5D5 /* MainWindow.xib */; };
+		1073E73D13AEC8DF00EBF5D5 /* SmartAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073E73C13AEC8DF00EBF5D5 /* SmartAlertViewController.m */; };
+		1073E74013AEC8DF00EBF5D5 /* SmartAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1073E73E13AEC8DF00EBF5D5 /* SmartAlertViewController.xib */; };
+		1073E74813AEC90D00EBF5D5 /* SmartAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073E74713AEC90D00EBF5D5 /* SmartAlert.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1073E72213AEC8DF00EBF5D5 /* SmartAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1073E72613AEC8DF00EBF5D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1073E72813AEC8DF00EBF5D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1073E72A13AEC8DF00EBF5D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1073E72E13AEC8DF00EBF5D5 /* SmartAlert-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartAlert-Info.plist"; sourceTree = "<group>"; };
+		1073E73013AEC8DF00EBF5D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1073E73213AEC8DF00EBF5D5 /* SmartAlert-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartAlert-Prefix.pch"; sourceTree = "<group>"; };
+		1073E73313AEC8DF00EBF5D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1073E73513AEC8DF00EBF5D5 /* SmartAlertAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartAlertAppDelegate.h; sourceTree = "<group>"; };
+		1073E73613AEC8DF00EBF5D5 /* SmartAlertAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartAlertAppDelegate.m; sourceTree = "<group>"; };
+		1073E73913AEC8DF00EBF5D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		1073E73B13AEC8DF00EBF5D5 /* SmartAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartAlertViewController.h; sourceTree = "<group>"; };
+		1073E73C13AEC8DF00EBF5D5 /* SmartAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartAlertViewController.m; sourceTree = "<group>"; };
+		1073E73F13AEC8DF00EBF5D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SmartAlertViewController.xib; sourceTree = "<group>"; };
+		1073E74613AEC90D00EBF5D5 /* SmartAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartAlert.h; sourceTree = "<group>"; };
+		1073E74713AEC90D00EBF5D5 /* SmartAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartAlert.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1073E71F13AEC8DF00EBF5D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1073E72713AEC8DF00EBF5D5 /* UIKit.framework in Frameworks */,
+				1073E72913AEC8DF00EBF5D5 /* Foundation.framework in Frameworks */,
+				1073E72B13AEC8DF00EBF5D5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1073E71713AEC8DE00EBF5D5 = {
+			isa = PBXGroup;
+			children = (
+				1073E72C13AEC8DF00EBF5D5 /* SmartAlert */,
+				1073E72513AEC8DF00EBF5D5 /* Frameworks */,
+				1073E72313AEC8DF00EBF5D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1073E72313AEC8DF00EBF5D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1073E72213AEC8DF00EBF5D5 /* SmartAlert.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1073E72513AEC8DF00EBF5D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1073E72613AEC8DF00EBF5D5 /* UIKit.framework */,
+				1073E72813AEC8DF00EBF5D5 /* Foundation.framework */,
+				1073E72A13AEC8DF00EBF5D5 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1073E72C13AEC8DF00EBF5D5 /* SmartAlert */ = {
+			isa = PBXGroup;
+			children = (
+				1073E73513AEC8DF00EBF5D5 /* SmartAlertAppDelegate.h */,
+				1073E73613AEC8DF00EBF5D5 /* SmartAlertAppDelegate.m */,
+				1073E73813AEC8DF00EBF5D5 /* MainWindow.xib */,
+				1073E73B13AEC8DF00EBF5D5 /* SmartAlertViewController.h */,
+				1073E73C13AEC8DF00EBF5D5 /* SmartAlertViewController.m */,
+				1073E73E13AEC8DF00EBF5D5 /* SmartAlertViewController.xib */,
+				1073E72D13AEC8DF00EBF5D5 /* Supporting Files */,
+				1073E74613AEC90D00EBF5D5 /* SmartAlert.h */,
+				1073E74713AEC90D00EBF5D5 /* SmartAlert.m */,
+			);
+			path = SmartAlert;
+			sourceTree = "<group>";
+		};
+		1073E72D13AEC8DF00EBF5D5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1073E72E13AEC8DF00EBF5D5 /* SmartAlert-Info.plist */,
+				1073E72F13AEC8DF00EBF5D5 /* InfoPlist.strings */,
+				1073E73213AEC8DF00EBF5D5 /* SmartAlert-Prefix.pch */,
+				1073E73313AEC8DF00EBF5D5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1073E72113AEC8DF00EBF5D5 /* SmartAlert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1073E74313AEC8DF00EBF5D5 /* Build configuration list for PBXNativeTarget "SmartAlert" */;
+			buildPhases = (
+				1073E71E13AEC8DF00EBF5D5 /* Sources */,
+				1073E71F13AEC8DF00EBF5D5 /* Frameworks */,
+				1073E72013AEC8DF00EBF5D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartAlert;
+			productName = SmartAlert;
+			productReference = 1073E72213AEC8DF00EBF5D5 /* SmartAlert.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1073E71913AEC8DE00EBF5D5 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1073E71C13AEC8DE00EBF5D5 /* Build configuration list for PBXProject "SmartAlert" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1073E71713AEC8DE00EBF5D5;
+			productRefGroup = 1073E72313AEC8DF00EBF5D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1073E72113AEC8DF00EBF5D5 /* SmartAlert */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1073E72013AEC8DF00EBF5D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1073E73113AEC8DF00EBF5D5 /* InfoPlist.strings in Resources */,
+				1073E73A13AEC8DF00EBF5D5 /* MainWindow.xib in Resources */,
+				1073E74013AEC8DF00EBF5D5 /* SmartAlertViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1073E71E13AEC8DF00EBF5D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1073E73413AEC8DF00EBF5D5 /* main.m in Sources */,
+				1073E73713AEC8DF00EBF5D5 /* SmartAlertAppDelegate.m in Sources */,
+				1073E73D13AEC8DF00EBF5D5 /* SmartAlertViewController.m in Sources */,
+				1073E74813AEC90D00EBF5D5 /* SmartAlert.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1073E72F13AEC8DF00EBF5D5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1073E73013AEC8DF00EBF5D5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1073E73813AEC8DF00EBF5D5 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1073E73913AEC8DF00EBF5D5 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		1073E73E13AEC8DF00EBF5D5 /* SmartAlertViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1073E73F13AEC8DF00EBF5D5 /* en */,
+			);
+			name = SmartAlertViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1073E74113AEC8DF00EBF5D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1073E74213AEC8DF00EBF5D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		1073E74413AEC8DF00EBF5D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartAlert/SmartAlert-Prefix.pch";
+				INFOPLIST_FILE = "SmartAlert/SmartAlert-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1073E74513AEC8DF00EBF5D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartAlert/SmartAlert-Prefix.pch";
+				INFOPLIST_FILE = "SmartAlert/SmartAlert-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1073E71C13AEC8DE00EBF5D5 /* Build configuration list for PBXProject "SmartAlert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1073E74113AEC8DF00EBF5D5 /* Debug */,
+				1073E74213AEC8DF00EBF5D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1073E74313AEC8DF00EBF5D5 /* Build configuration list for PBXNativeTarget "SmartAlert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1073E74413AEC8DF00EBF5D5 /* Debug */,
+				1073E74513AEC8DF00EBF5D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1073E71913AEC8DE00EBF5D5 /* Project object */;
+}
