@@ -17,6 +17,7 @@
 		1073E73D13AEC8DF00EBF5D5 /* SmartAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073E73C13AEC8DF00EBF5D5 /* SmartAlertViewController.m */; };
 		1073E74013AEC8DF00EBF5D5 /* SmartAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1073E73E13AEC8DF00EBF5D5 /* SmartAlertViewController.xib */; };
 		1073E74813AEC90D00EBF5D5 /* SmartAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073E74713AEC90D00EBF5D5 /* SmartAlert.m */; };
+		10CA166313B0155800621123 /* SmartAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA166213B0155800621123 /* SmartAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		1073E73F13AEC8DF00EBF5D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SmartAlertViewController.xib; sourceTree = "<group>"; };
 		1073E74613AEC90D00EBF5D5 /* SmartAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartAlert.h; sourceTree = "<group>"; };
 		1073E74713AEC90D00EBF5D5 /* SmartAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartAlert.m; sourceTree = "<group>"; };
+		10CA166113B0155800621123 /* SmartAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartAlertView.h; sourceTree = "<group>"; };
+		10CA166213B0155800621123 /* SmartAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,15 +85,9 @@
 		1073E72C13AEC8DF00EBF5D5 /* SmartAlert */ = {
 			isa = PBXGroup;
 			children = (
-				1073E73513AEC8DF00EBF5D5 /* SmartAlertAppDelegate.h */,
-				1073E73613AEC8DF00EBF5D5 /* SmartAlertAppDelegate.m */,
-				1073E73813AEC8DF00EBF5D5 /* MainWindow.xib */,
-				1073E73B13AEC8DF00EBF5D5 /* SmartAlertViewController.h */,
-				1073E73C13AEC8DF00EBF5D5 /* SmartAlertViewController.m */,
-				1073E73E13AEC8DF00EBF5D5 /* SmartAlertViewController.xib */,
+				10CA166013B0154000621123 /* SmartAlert */,
+				10CA165E13B0151F00621123 /* App Code */,
 				1073E72D13AEC8DF00EBF5D5 /* Supporting Files */,
-				1073E74613AEC90D00EBF5D5 /* SmartAlert.h */,
-				1073E74713AEC90D00EBF5D5 /* SmartAlert.m */,
 			);
 			path = SmartAlert;
 			sourceTree = "<group>";
@@ -104,6 +101,30 @@
 				1073E73313AEC8DF00EBF5D5 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		10CA165E13B0151F00621123 /* App Code */ = {
+			isa = PBXGroup;
+			children = (
+				1073E73513AEC8DF00EBF5D5 /* SmartAlertAppDelegate.h */,
+				1073E73613AEC8DF00EBF5D5 /* SmartAlertAppDelegate.m */,
+				1073E73813AEC8DF00EBF5D5 /* MainWindow.xib */,
+				1073E73B13AEC8DF00EBF5D5 /* SmartAlertViewController.h */,
+				1073E73C13AEC8DF00EBF5D5 /* SmartAlertViewController.m */,
+				1073E73E13AEC8DF00EBF5D5 /* SmartAlertViewController.xib */,
+			);
+			name = "App Code";
+			sourceTree = "<group>";
+		};
+		10CA166013B0154000621123 /* SmartAlert */ = {
+			isa = PBXGroup;
+			children = (
+				1073E74613AEC90D00EBF5D5 /* SmartAlert.h */,
+				1073E74713AEC90D00EBF5D5 /* SmartAlert.m */,
+				10CA166113B0155800621123 /* SmartAlertView.h */,
+				10CA166213B0155800621123 /* SmartAlertView.m */,
+			);
+			name = SmartAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +191,7 @@
 				1073E73713AEC8DF00EBF5D5 /* SmartAlertAppDelegate.m in Sources */,
 				1073E73D13AEC8DF00EBF5D5 /* SmartAlertViewController.m in Sources */,
 				1073E74813AEC90D00EBF5D5 /* SmartAlert.m in Sources */,
+				10CA166313B0155800621123 /* SmartAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +306,7 @@
 				1073E74513AEC8DF00EBF5D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,6 +17,7 @@
 
 
 #import "SmartAlert.h"
+#import "SmartAlertView.h"
 
 static SmartAlert *shared = nil;
 
@@ -34,11 +35,11 @@ static SmartAlert *shared = nil;
         
         NSMutableDictionary *alert = [NSMutableDictionary dictionary];
         
-        // Create UIAlertView to store in our dictionary
-        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"Smart Alert" message:_alert delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        // Create SmartAlertView to store in our dictionary
+        SmartAlertView *al = [[SmartAlertView alloc] initWithTitle:@"Smart Alert" message:_alert delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [al show];
         
-        // Add UIAlertView to Dictionary
+        // Add SmartAlertView to Dictionary
         [alert setValue:al forKey:@"alertView"];
         
         // Add Count object to dictionary
@@ -64,7 +65,7 @@ static SmartAlert *shared = nil;
     }else{
         
         NSMutableDictionary *dict = (NSMutableDictionary *)test;
-        UIAlertView *al = [dict objectForKey:@"alertView"];
+        SmartAlertView *al = [dict objectForKey:@"alertView"];
         NSNumber *count = (NSNumber *)[dict objectForKey:@"count"];
         count = [NSNumber numberWithInt:[count intValue]+1];
         
@@ -87,15 +88,15 @@ static SmartAlert *shared = nil;
 
 
 
-#pragma mark - UIAlertViewDelegate
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+#pragma mark - SmartAlertViewDelegate
+- (void) alertView:(SmartAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if(buttonIndex == 0){ // Cancel
         
         for(NSString *key in self.alerts){
             NSMutableDictionary *alert = [self.alerts objectForKey:key];
             
-            UIAlertView *al = [alert objectForKey:@"alertView"];
+            SmartAlertView *al = [alert objectForKey:@"alertView"];
             if([al isEqual:alertView]){
                 // REMOVE IF VIEW IS THE SAME SO IT CAN RECEIVE MORE ALERTS
                 [self.alerts removeObjectForKey:key];
@@ -105,7 +106,7 @@ static SmartAlert *shared = nil;
     }
 }
 
-- (void) alertViewCancel:(UIAlertView *)alertView {
+- (void) alertViewCancel:(SmartAlertView *)alertView {
     NSLog(@"Cancel");
 }
 
