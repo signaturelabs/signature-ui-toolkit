@@ -16,6 +16,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "SmartAlertView.h"
 
 #define kSmartAlertAppend 1;
 #define kSmartAlertReplace 2;
@@ -25,6 +26,8 @@
 }
 
 @property (retain) NSMutableDictionary *alerts;
+@property (retain) SmartAlertView *alertView;
+@property (retain) NSString *title;
 
 + (id)shared;
 + (void) showAlert:(NSString*)alert forKey:(NSString *)key;

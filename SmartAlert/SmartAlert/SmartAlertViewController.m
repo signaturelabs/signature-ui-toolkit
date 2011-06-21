@@ -35,6 +35,7 @@
 
 -(IBAction) showAlert {
     count = 0;
+    
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
     [runner addTimer:timer forMode: NSDefaultRunLoopMode];
 }
@@ -47,6 +48,7 @@
 
 -(void) fireAlert {   
     [SmartAlert showAlert:@"Test message" forKey:@"message" withMode:@"replace"];
+   // [SmartAlert showAlert:@"A panda!" forKey:@"message2" withMode:@"replace"];
 }
 
 - (void)dealloc
@@ -85,6 +87,9 @@
     [inv setTarget: self];
     [inv setSelector:@selector(timerEvent:)];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 invocation:inv repeats:YES];
+
+    // Set the title of the Alert Dialog
+    [[SmartAlert shared] setTitle:@"Smart Alert Demo"];
     
     
     

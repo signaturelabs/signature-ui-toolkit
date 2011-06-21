@@ -12,8 +12,13 @@
 @interface SmartAlertView : UIAlertView {
     
 }
+
+@property (nonatomic,retain) NSMutableDictionary *messages;
+@property (nonatomic,retain) NSMutableDictionary *labels;
+
 - (id)initWithFrame:(CGRect)frame;
 - (void)setFrame:(CGRect)rect;
 - (void)layoutSubviews;
+- (void) setMessage:(NSString *)_message forKey: (NSString *)_key;
 
 @end
