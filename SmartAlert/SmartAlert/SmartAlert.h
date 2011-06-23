@@ -26,7 +26,6 @@
 }
 
 @property (retain) NSMutableDictionary *alerts;
-@property (retain) SmartAlertView *alertView;
 @property (retain) NSString *title;
 
 + (id)shared;

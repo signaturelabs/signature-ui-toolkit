@@ -48,7 +48,7 @@
 
 -(void) fireAlert {   
     [SmartAlert showAlert:@"Test message" forKey:@"message" withMode:@"replace"];
-   // [SmartAlert showAlert:@"A panda!" forKey:@"message2" withMode:@"replace"];
+    [SmartAlert showAlert:@"A panda!" forKey:@"message2" withMode:@"replace"];
 }
 
 - (void)dealloc

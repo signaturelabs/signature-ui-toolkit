@@ -22,7 +22,7 @@ static SmartAlert *shared = nil;
 
 @implementation SmartAlert
 
-@synthesize alerts,alertView,title;
+@synthesize alerts,title;
 
 + (void) showAlert:(NSString*)_alert forKey:(NSString *)key {
     SmartAlert *sa = [SmartAlert shared];  
@@ -33,13 +33,18 @@ static SmartAlert *shared = nil;
     if(test == nil || [test isKindOfClass:[NSNull class]]){
         
         NSMutableDictionary *alert = [NSMutableDictionary dictionary];
+        SmartAlertView *alertView = [alert objectForKey:@"alert"];
         
         // Create SmartAlertView to store in our dictionary
-        if(sa.alertView == nil){
-          sa.alertView = [[SmartAlertView alloc] initWithTitle:sa.title message:@"" delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        if(alertView == nil){
+          alertView = [[SmartAlertView alloc] initWithTitle:sa.title message:@"" delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
         }
-        [sa.alertView setMessage:_alert forKey:key];
-        [sa.alertView show];
+        [alertView setMessage:_alert forKey:key];
+        [alertView show];
+        
+        
+        // Add Alert object to dictionary
+        [alert setValue:alertView forKey:@"alert"];
         
         // Add Count object to dictionary
         [alert setValue:[NSNumber numberWithInt:1] forKey:@"count"];
@@ -62,23 +67,31 @@ static SmartAlert *shared = nil;
         
     }else{
         
-        NSMutableDictionary *dict = (NSMutableDictionary *)test;
-        NSNumber *count = (NSNumber *)[dict objectForKey:@"count"];
+        NSMutableDictionary *alert = (NSMutableDictionary *)test;
+        
+        SmartAlertView *alertView = [alert objectForKey:@"alert"];
+        
+        NSNumber *count = (NSNumber *)[alert objectForKey:@"count"];
         
         count = [NSNumber numberWithInt:[count intValue]+1];
         
         if([mode isEqual:@"append"]){
-            NSString *msg = [sa.alertView.message stringByAppendingFormat:@"\n%@",_alert];
-            [sa.alertView setMessage:msg forKey:key];
+            NSString *msg = [alertView.message stringByAppendingFormat:@"\n%@",_alert];
+            [alertView setMessage:msg forKey:key];
             
         }else{
             NSString *string = [[NSString alloc] initWithFormat:@"(%i) %@",[count intValue],_alert];
-            [sa.alertView setMessage:string forKey:key];
+            [alertView setMessage:string forKey:key];
             [string release];
         }
         
-        [dict setValue:count forKey:@"count"];
-        [sa.alerts setObject:dict forKey:key];
+        // Add Alert object to dictionary
+        [alert setValue:alertView forKey:@"alert"];
+        
+        // Add Count object to dictionary
+        [alert setValue:count forKey:@"count"];
+        
+        [sa.alerts setObject:alert forKey:key];
     }
 
 }
@@ -136,7 +149,6 @@ static SmartAlert *shared = nil;
 - (void)dealloc {
     [super dealloc];
     self.alerts = nil;
-    self.alertView = nil;
     self.title = nil;
 }
 
