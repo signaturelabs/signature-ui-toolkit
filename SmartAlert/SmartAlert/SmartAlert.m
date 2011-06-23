@@ -24,6 +24,7 @@ static SmartAlert *shared = nil;
 
 @synthesize alerts,title;
 
+
 + (void) showAlert:(NSString*)_alert forKey:(NSString *)key {
     SmartAlert *sa = [SmartAlert shared];  
     
@@ -33,24 +34,21 @@ static SmartAlert *shared = nil;
     if(test == nil || [test isKindOfClass:[NSNull class]]){
         
         NSMutableDictionary *alert = [NSMutableDictionary dictionary];
-        SmartAlertView *alertView = [alert objectForKey:@"alert"];
         
-        // Create SmartAlertView to store in our dictionary
-        if(alertView == nil){
-          alertView = [[SmartAlertView alloc] initWithTitle:sa.title message:@"" delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        }
-        [alertView setMessage:_alert forKey:key];
+        NSMutableDictionary *messages = [NSMutableDictionary dictionary];
+        
+        [messages setObject:[NSNumber numberWithInt:1] forKey:_alert];
+        
+        SmartAlertView *alertView = [[SmartAlertView alloc] initWithTitle:sa.title message:@"" delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [alertView setMessages:messages];
         [alertView show];
         
+        [alert setObject:alertView forKey:@"alert"];
+        [alert setObject:messages forKey:@"messages"];
         
-        // Add Alert object to dictionary
-        [alert setValue:alertView forKey:@"alert"];
-        
-        // Add Count object to dictionary
-        [alert setValue:[NSNumber numberWithInt:1] forKey:@"count"];
-        
-        // Store alert dictionary to tracking dictionary
         [sa.alerts setObject:alert forKey:key];
+
     }
     
     
@@ -59,6 +57,40 @@ static SmartAlert *shared = nil;
 + (void) showAlert:(NSString *)_alert forKey:(NSString *)key withMode:(NSString *)mode {
     SmartAlert *sa = [SmartAlert shared];
     
+    id object = [sa.alerts objectForKey:key];
+    if(object == nil || [object isKindOfClass:[NSNull class]]){
+        
+        // Fire off a new alert
+        [SmartAlert showAlert:_alert forKey:key];
+        
+    }else{
+        NSMutableDictionary *alert = (NSMutableDictionary *)object;
+        
+        SmartAlertView *alertView = [alert objectForKey:@"alert"];
+        
+        NSMutableDictionary *messages = [alert objectForKey:@"messages"];
+        
+        id message = [messages objectForKey:_alert];
+        if(message == nil || [message isKindOfClass:[NSNull class]]){
+            // New Message
+            [messages setObject:[NSNumber numberWithInt:1] forKey:_alert];
+        }else{
+            NSNumber *count = (NSNumber *)message;
+          //  NSDictionary *m = (NSDictionary *)message;
+          //  NSNumber *count = [m objectForKey:_alert];
+            count = [NSNumber numberWithInt:[count intValue]+1];
+            [messages setObject:count forKey:_alert];
+        }
+        
+        [alertView setMessages:messages];
+        
+        [alert setObject:alertView forKey:@"alert"];
+        
+        [sa.alerts setObject:alert forKey:key];
+        
+    }
+
+    /*
     id test = [sa.alerts objectForKey:key];
     if(test == nil || [test isKindOfClass:[NSNull class]]){
         
@@ -91,8 +123,11 @@ static SmartAlert *shared = nil;
         // Add Count object to dictionary
         [alert setValue:count forKey:@"count"];
         
+        
+        // Store alert dictionary to tracking dictionary
         [sa.alerts setObject:alert forKey:key];
     }
+     */
 
 }
 

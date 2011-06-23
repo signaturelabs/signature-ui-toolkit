@@ -11,8 +11,37 @@
 
 @implementation SmartAlertView
 
-@synthesize messages,labels;
+@synthesize labels,_messages;
+- (void) setMessages:(NSMutableDictionary *)messages {
+    self._messages = messages;
+    
+    [self.labels removeAllObjects];
+    
+    for(NSString *messageString in self._messages){
+        NSNumber *count = [self._messages objectForKey:messageString];
+        
+        
+        UILabel *lbl = [[UILabel alloc] init];
+        
+        if([count intValue] > 1){
+            NSString *txt = [[NSString alloc] initWithFormat:@"(%i) %@",[count intValue],messageString];
+            lbl.text = txt;
+            [txt release];
+        }else{
+            lbl.text = messageString;
+        }
+        
+        [self.labels setObject:lbl forKey:messageString];
+        [lbl release];
+    }
+    
+    [self layoutSubviews];
+}
 
+- (NSMutableDictionary *) messages {
+    return self._messages;
+}
+/*
 - (void) setMessage:(NSString *)_message forKey: (NSString *)_key {
     [self.messages setValue:_message forKey:_key];
     
@@ -26,17 +55,18 @@
     
     [self layoutSubviews];
 }
+ */
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        self.messages = [[NSMutableDictionary alloc] init];
+        self._messages = [[NSMutableDictionary alloc] init];
         self.labels = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
 - (void)setFrame:(CGRect)rect {  
-    int max = [messages count] > 5 ? 5 : [messages count];
+    int max = [self.messages count] > 5 ? 5 : [self._messages count];
     [super setFrame:CGRectMake(0, 0, rect.size.width, (max*30)+110)];
     self.center = CGPointMake(320/2, 480/2);
 }
@@ -63,11 +93,13 @@
     
     int newY = 45;
     
+    NSLog(@"%i labels",[self.labels count]);
+    
     if([self.labels count] > 0){
         for(NSString *key in self.labels){
-            UILabel *lbl = (UILabel*)[self.labels valueForKey:key];
+            NSLog(@"%@",key);
+            UILabel *lbl = (UILabel*)[self.labels objectForKey:key];
             lbl.frame = CGRectMake(15, newY, 250, 25);
-            lbl.text = (NSString *)[self.messages valueForKey:key];
             lbl.textColor = [UIColor whiteColor];
             lbl.backgroundColor = [UIColor clearColor];
             lbl.textAlignment = UITextAlignmentCenter;
@@ -81,7 +113,7 @@
 
 - (void) dealloc {
     [super dealloc];
-    self.messages = nil;
+    self._messages = nil;
 }
 
 
