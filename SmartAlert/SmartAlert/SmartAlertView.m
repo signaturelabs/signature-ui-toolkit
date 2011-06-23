@@ -15,6 +15,8 @@
 - (void) setMessages:(NSMutableDictionary *)messages {
     self._messages = messages;
     
+    [self setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    
     [self.labels removeAllObjects];
     
     for(NSString *messageString in self._messages){
@@ -41,21 +43,6 @@
 - (NSMutableDictionary *) messages {
     return self._messages;
 }
-/*
-- (void) setMessage:(NSString *)_message forKey: (NSString *)_key {
-    [self.messages setValue:_message forKey:_key];
-    
-    [self setFrame:CGRectMake(0, 0, self.frame.size.width, 0)];
-    
-    UILabel *lbl = [[UILabel alloc] init];
-    lbl.text = _message;
-    
-    [self.labels setValue:lbl forKey:_key];
-    [lbl release];
-    
-    [self layoutSubviews];
-}
- */
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {

@@ -49,6 +49,7 @@
 -(void) fireAlert {   
     [SmartAlert showAlert:@"Test message" forKey:@"message" withMode:@"append"];
     [SmartAlert showAlert:@"A panda!" forKey:@"message" withMode:@"append"];
+    [SmartAlert showAlert:@"3 missed calls" forKey:@"message2" withMode:@"append"];
 }
 
 - (void)dealloc

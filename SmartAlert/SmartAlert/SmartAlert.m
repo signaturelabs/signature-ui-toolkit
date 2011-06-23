@@ -48,7 +48,8 @@ static SmartAlert *shared = nil;
         [alert setObject:messages forKey:@"messages"];
         
         [sa.alerts setObject:alert forKey:key];
-
+        
+        [alertView release];
     }
     
     
@@ -72,14 +73,16 @@ static SmartAlert *shared = nil;
         
         id message = [messages objectForKey:_alert];
         if(message == nil || [message isKindOfClass:[NSNull class]]){
+            
             // New Message
             [messages setObject:[NSNumber numberWithInt:1] forKey:_alert];
+            
         }else{
+            
             NSNumber *count = (NSNumber *)message;
-          //  NSDictionary *m = (NSDictionary *)message;
-          //  NSNumber *count = [m objectForKey:_alert];
             count = [NSNumber numberWithInt:[count intValue]+1];
             [messages setObject:count forKey:_alert];
+            
         }
         
         [alertView setMessages:messages];
@@ -89,45 +92,6 @@ static SmartAlert *shared = nil;
         [sa.alerts setObject:alert forKey:key];
         
     }
-
-    /*
-    id test = [sa.alerts objectForKey:key];
-    if(test == nil || [test isKindOfClass:[NSNull class]]){
-        
-        // Fire a basic first alert
-        [SmartAlert showAlert:_alert forKey:key];
-        
-    }else{
-        
-        NSMutableDictionary *alert = (NSMutableDictionary *)test;
-        
-        SmartAlertView *alertView = [alert objectForKey:@"alert"];
-        
-        NSNumber *count = (NSNumber *)[alert objectForKey:@"count"];
-        
-        count = [NSNumber numberWithInt:[count intValue]+1];
-        
-        if([mode isEqual:@"append"]){
-            NSString *msg = [alertView.message stringByAppendingFormat:@"\n%@",_alert];
-            [alertView setMessage:msg forKey:key];
-            
-        }else{
-            NSString *string = [[NSString alloc] initWithFormat:@"(%i) %@",[count intValue],_alert];
-            [alertView setMessage:string forKey:key];
-            [string release];
-        }
-        
-        // Add Alert object to dictionary
-        [alert setValue:alertView forKey:@"alert"];
-        
-        // Add Count object to dictionary
-        [alert setValue:count forKey:@"count"];
-        
-        
-        // Store alert dictionary to tracking dictionary
-        [sa.alerts setObject:alert forKey:key];
-    }
-     */
 
 }
 
