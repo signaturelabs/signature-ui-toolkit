@@ -1,21 +1,30 @@
-//
-//  SmartAlertView.m
-//  SmartAlert
-//
-//  Created by Nate Lyman on 6/20/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
+/*
+ The contents of this file are subject to the Mozilla Public License
+ Version 1.1 (the "License"); you may not use this file except in
+ compliance with the License. You may obtain a copy of the License at
+ http://www.mozilla.org/MPL/
+ 
+ The Initial Developer of the Original Code is Hollrr, LLC.
+ Portions created by the Initial Developer are Copyright (C) 2011
+ the Initial Developer. All Rights Reserved.
+ 
+ Contributor(s):
+ 
+ Nate Lyman <nlyman@natesite.com>
+ Traun Leyden <tleyden@signature-app.com>
+ 
+ */
 #import "SmartAlertView.h"
 
 
 @implementation SmartAlertView
 
-@synthesize labels,_messages;
+@synthesize labels,_messages,maxMessages;
+
 - (void) setMessages:(NSMutableDictionary *)messages {
     self._messages = messages;
     
-    [self setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    [self setFrame:self.frame];
     
     [self.labels removeAllObjects];
     
@@ -48,25 +57,27 @@
     if ((self = [super initWithFrame:frame])) {
         self._messages = [[NSMutableDictionary alloc] init];
         self.labels = [[NSMutableDictionary alloc] init];
+        self.maxMessages = 5;
     }
     return self;
 }
 
 - (void)setFrame:(CGRect)rect {  
-    int max = [self.messages count] > 5 ? 5 : [self._messages count];
-    [super setFrame:CGRectMake(0, 0, rect.size.width, (max*30)+110)];
+    
+    int max = [self._messages count] > self.maxMessages ? self.maxMessages : [self._messages count];
+    int height = ((max > 0 ? max : 1)*30)+110;
+    
+    [super setFrame:CGRectMake(0, 0, rect.size.width, height)];
     self.center = CGPointMake(320/2, 480/2);
 }
 
 - (void)layoutSubviews {
     
-    CGFloat buttonTop;
-    
     for (UIView *view in self.subviews) {
         
         if ([[[view class] description] isEqualToString:@"UIThreePartButton"]) {
             view.frame = CGRectMake(view.frame.origin.x, self.bounds.size.height - view.frame.size.height - 15, view.frame.size.width, view.frame.size.height);
-            buttonTop = view.frame.origin.y;
+            
         }
         
         if([view isKindOfClass:[UILabel class]]){
@@ -80,19 +91,22 @@
     
     int newY = 45;
     
-    NSLog(@"%i labels",[self.labels count]);
+    int count = 0;
     
     if([self.labels count] > 0){
         for(NSString *key in self.labels){
-            NSLog(@"%@",key);
-            UILabel *lbl = (UILabel*)[self.labels objectForKey:key];
-            lbl.frame = CGRectMake(15, newY, 250, 25);
-            lbl.textColor = [UIColor whiteColor];
-            lbl.backgroundColor = [UIColor clearColor];
-            lbl.textAlignment = UITextAlignmentCenter;
-            [self addSubview:lbl];
-            
-            newY+=30;
+            if(count < maxMessages){
+                UILabel *lbl = (UILabel*)[self.labels objectForKey:key];
+                lbl.frame = CGRectMake(15, newY, 250, 25);
+                lbl.textColor = [UIColor whiteColor];
+                lbl.backgroundColor = [UIColor clearColor];
+                lbl.textAlignment = UITextAlignmentCenter;
+                [self addSubview:lbl];
+                
+                newY+=30;
+                
+                count++;
+            }
         }
     }
 }

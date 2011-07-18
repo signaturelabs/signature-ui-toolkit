@@ -1,5 +1,5 @@
 /*
- ``The contents of this file are subject to the Mozilla Public License
+ The contents of this file are subject to the Mozilla Public License
  Version 1.1 (the "License"); you may not use this file except in
  compliance with the License. You may obtain a copy of the License at
  http://www.mozilla.org/MPL/
@@ -22,7 +22,7 @@ static SmartAlert *shared = nil;
 
 @implementation SmartAlert
 
-@synthesize alerts,title;
+@synthesize alerts,title,maxMessages;
 
 
 + (void) showAlert:(NSString*)_alert forKey:(NSString *)key {
@@ -40,6 +40,7 @@ static SmartAlert *shared = nil;
         [messages setObject:[NSNumber numberWithInt:1] forKey:_alert];
         
         SmartAlertView *alertView = [[SmartAlertView alloc] initWithTitle:sa.title message:@"" delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView setMaxMessages:sa.maxMessages];
         
         [alertView setMessages:messages];
         [alertView show];
@@ -142,6 +143,7 @@ static SmartAlert *shared = nil;
     if ((self = [super init])) {
         self.alerts = [[NSMutableDictionary alloc] init];
         self.title = @"Smart Alert";
+        self.maxMessages = 5;
     }
     return self;
 }

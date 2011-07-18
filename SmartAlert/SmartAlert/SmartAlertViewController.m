@@ -47,8 +47,20 @@
 }
 
 -(void) fireAlert {   
+    
+    // SET MAX MESSAGES DISPLAYED IN A ALERT WINDOW
+    [[SmartAlert shared] setMaxMessages:3];
+    
+    
+    // DISPLAY ALERTS FOR message KEY
     [SmartAlert showAlert:@"Test message" forKey:@"message" withMode:@"append"];
     [SmartAlert showAlert:@"A panda!" forKey:@"message" withMode:@"append"];
+    [SmartAlert showAlert:@"A panda?" forKey:@"message" withMode:@"append"];
+    [SmartAlert showAlert:@"A cougar?" forKey:@"message" withMode:@"append"];
+    [SmartAlert showAlert:@"A lion?" forKey:@"message" withMode:@"append"];
+    [SmartAlert showAlert:@"A dog?" forKey:@"message" withMode:@"append"];
+    
+    // DISPLAY ALERT FOR message2 KEY
     [SmartAlert showAlert:@"3 missed calls" forKey:@"message2" withMode:@"append"];
 }
 
