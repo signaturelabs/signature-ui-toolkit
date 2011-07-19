@@ -35,10 +35,10 @@
 		1073E73B13AEC8DF00EBF5D5 /* SmartAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartAlertViewController.h; sourceTree = "<group>"; };
 		1073E73C13AEC8DF00EBF5D5 /* SmartAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartAlertViewController.m; sourceTree = "<group>"; };
 		1073E73F13AEC8DF00EBF5D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SmartAlertViewController.xib; sourceTree = "<group>"; };
-		1073E74613AEC90D00EBF5D5 /* SmartAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartAlert.h; sourceTree = "<group>"; };
-		1073E74713AEC90D00EBF5D5 /* SmartAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartAlert.m; sourceTree = "<group>"; };
-		10CA166113B0155800621123 /* SmartAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartAlertView.h; sourceTree = "<group>"; };
-		10CA166213B0155800621123 /* SmartAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartAlertView.m; sourceTree = "<group>"; };
+		1073E74613AEC90D00EBF5D5 /* SmartAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartAlert.h; path = ../../src/SmartAlert.h; sourceTree = "<group>"; };
+		1073E74713AEC90D00EBF5D5 /* SmartAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartAlert.m; path = ../../src/SmartAlert.m; sourceTree = "<group>"; };
+		10CA166113B0155800621123 /* SmartAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartAlertView.h; path = ../../src/SmartAlertView.h; sourceTree = "<group>"; };
+		10CA166213B0155800621123 /* SmartAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartAlertView.m; path = ../../src/SmartAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
