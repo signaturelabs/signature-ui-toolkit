@@ -142,7 +142,7 @@ static SmartAlert *shared = nil;
 - (id)init {
     if ((self = [super init])) {
         self.alerts = [[NSMutableDictionary alloc] init];
-        self.title = @"Smart Alert";
+        self.title = @"Signature";
         self.maxMessages = 5;
     }
     return self;
