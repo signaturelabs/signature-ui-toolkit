@@ -133,16 +133,14 @@ static SmartAlert *shared = nil;
 - (unsigned)retainCount {
     return UINT_MAX; // Can never be released;
 }
-- (void)release {
-    // never release
-}
+
 - (id)autorelease {
     return self;
 }
 - (id)init {
     if ((self = [super init])) {
         self.alerts = [[NSMutableDictionary alloc] init];
-        self.title = @"Signature";
+        self.title = @"SmartAlert";
         self.maxMessages = 5;
     }
     return self;
