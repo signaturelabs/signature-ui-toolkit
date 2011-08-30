@@ -27,6 +27,7 @@ static SmartAlert *shared = nil;
 
 + (void) showAlert:(NSString*)_alert forKey:(NSString *)key {
     SmartAlert *sa = [SmartAlert shared];  
+    if(key == nil) key = @"";
     
     // Pull object
     id test = [sa.alerts objectForKey:key];
@@ -58,6 +59,7 @@ static SmartAlert *shared = nil;
 
 + (void) showAlert:(NSString *)_alert forKey:(NSString *)key withMode:(NSString *)mode {
     SmartAlert *sa = [SmartAlert shared];
+    if(key == nil) key = @"";
     
     id object = [sa.alerts objectForKey:key];
     if(object == nil || [object isKindOfClass:[NSNull class]]){
