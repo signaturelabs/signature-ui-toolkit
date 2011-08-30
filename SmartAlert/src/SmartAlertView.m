@@ -67,8 +67,10 @@
     int max = [self._messages count] > self.maxMessages ? self.maxMessages : [self._messages count];
     int height = ((max > 0 ? max : 1)*30)+110;
     
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    
     [super setFrame:CGRectMake(0, 0, rect.size.width, height)];
-    self.center = CGPointMake(320/2, 480/2);
+    self.center = CGPointMake(screen.size.width/2, screen.size.height/2);
 }
 
 - (void)layoutSubviews {

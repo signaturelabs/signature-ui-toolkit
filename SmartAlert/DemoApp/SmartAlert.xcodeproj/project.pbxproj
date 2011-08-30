@@ -18,6 +18,7 @@
 		1073E74013AEC8DF00EBF5D5 /* SmartAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1073E73E13AEC8DF00EBF5D5 /* SmartAlertViewController.xib */; };
 		1073E74813AEC90D00EBF5D5 /* SmartAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073E74713AEC90D00EBF5D5 /* SmartAlert.m */; };
 		10CA166313B0155800621123 /* SmartAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA166213B0155800621123 /* SmartAlertView.m */; };
+		10FA3478140CC95A009A571A /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10FA3476140CC95A009A571A /* MainWindow-iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		1073E74713AEC90D00EBF5D5 /* SmartAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartAlert.m; path = ../../src/SmartAlert.m; sourceTree = "<group>"; };
 		10CA166113B0155800621123 /* SmartAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartAlertView.h; path = ../../src/SmartAlertView.h; sourceTree = "<group>"; };
 		10CA166213B0155800621123 /* SmartAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartAlertView.m; path = ../../src/SmartAlertView.m; sourceTree = "<group>"; };
+		10FA3477140CC95A009A571A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		1073E72C13AEC8DF00EBF5D5 /* SmartAlert */ = {
 			isa = PBXGroup;
 			children = (
+				10FA3475140CC957009A571A /* iPad */,
 				10CA166013B0154000621123 /* SmartAlert */,
 				10CA165E13B0151F00621123 /* App Code */,
 				1073E72D13AEC8DF00EBF5D5 /* Supporting Files */,
@@ -125,6 +128,14 @@
 				10CA166213B0155800621123 /* SmartAlertView.m */,
 			);
 			name = SmartAlert;
+			sourceTree = "<group>";
+		};
+		10FA3475140CC957009A571A /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				10FA3476140CC95A009A571A /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 				1073E73113AEC8DF00EBF5D5 /* InfoPlist.strings in Resources */,
 				1073E73A13AEC8DF00EBF5D5 /* MainWindow.xib in Resources */,
 				1073E74013AEC8DF00EBF5D5 /* SmartAlertViewController.xib in Resources */,
+				10FA3478140CC95A009A571A /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +232,14 @@
 				1073E73F13AEC8DF00EBF5D5 /* en */,
 			);
 			name = SmartAlertViewController.xib;
+			sourceTree = "<group>";
+		};
+		10FA3476140CC95A009A571A /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10FA3477140CC95A009A571A /* en */,
+			);
+			name = "MainWindow-iPad.xib";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -266,8 +286,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartAlert/SmartAlert-Prefix.pch";
 				INFOPLIST_FILE = "SmartAlert/SmartAlert-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -280,8 +301,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartAlert/SmartAlert-Prefix.pch";
 				INFOPLIST_FILE = "SmartAlert/SmartAlert-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
