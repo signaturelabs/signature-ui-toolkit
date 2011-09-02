@@ -20,42 +20,17 @@
 
 static SmartAlert *shared = nil;
 
+@interface SmartAlert()
+
++ (void) showAlert:(NSString*)_alert forKey:(NSString *)key;
+
+@end
+
 @implementation SmartAlert
 
 @synthesize alerts,title,maxMessages;
 
-
-+ (void) showAlert:(NSString*)_alert forKey:(NSString *)key {
-    SmartAlert *sa = [SmartAlert shared];  
-    if(key == nil) key = @"";
-    
-    // Pull object
-    id test = [sa.alerts objectForKey:key];
-    
-    if(test == nil || [test isKindOfClass:[NSNull class]]){
-        
-        NSMutableDictionary *alert = [NSMutableDictionary dictionary];
-        
-        NSMutableDictionary *messages = [NSMutableDictionary dictionary];
-        
-        [messages setObject:[NSNumber numberWithInt:1] forKey:_alert];
-        
-        SmartAlertView *alertView = [[SmartAlertView alloc] initWithTitle:sa.title message:@"" delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alertView setMaxMessages:sa.maxMessages];
-        
-        [alertView setMessages:messages];
-        [alertView show];
-        
-        [alert setObject:alertView forKey:@"alert"];
-        [alert setObject:messages forKey:@"messages"];
-        
-        [sa.alerts setObject:alert forKey:key];
-        
-        [alertView release];
-    }
-    
-    
-}
+#pragma mark - Public
 
 + (void) showAlert:(NSString *)_alert forKey:(NSString *)key withMode:(NSString *)mode {
     SmartAlert *sa = [SmartAlert shared];
@@ -100,6 +75,7 @@ static SmartAlert *shared = nil;
 
 
 
+
 #pragma mark - SmartAlertViewDelegate
 - (void) alertView:(SmartAlertView *)_alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
@@ -114,8 +90,43 @@ static SmartAlert *shared = nil;
 
 
 
+#pragma mark - Private
 
-#pragma mark Singleton Methods
++ (void) showAlert:(NSString*)_alert forKey:(NSString *)key {
+    SmartAlert *sa = [SmartAlert shared];  
+    if(key == nil) key = @"";
+    
+    // Pull object
+    id test = [sa.alerts objectForKey:key];
+    
+    if(test == nil || [test isKindOfClass:[NSNull class]]){
+        
+        NSMutableDictionary *alert = [NSMutableDictionary dictionary];
+        
+        NSMutableDictionary *messages = [NSMutableDictionary dictionary];
+        
+        [messages setObject:[NSNumber numberWithInt:1] forKey:_alert];
+        
+        SmartAlertView *alertView = [[SmartAlertView alloc] initWithTitle:sa.title message:@"" delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView setMaxMessages:sa.maxMessages];
+        
+        [alertView setMessages:messages];
+        [alertView show];
+        
+        [alert setObject:alertView forKey:@"alert"];
+        [alert setObject:messages forKey:@"messages"];
+        
+        [sa.alerts setObject:alert forKey:key];
+        
+        [alertView release];
+    }
+    
+    
+}
+
+
+
+#pragma mark - Singleton Methods
 + (id)shared {
     @synchronized(self) {
         if(shared == nil)
@@ -126,6 +137,9 @@ static SmartAlert *shared = nil;
 + (id)allocWithZone:(NSZone *)zone {
     return [[self shared] retain];
 }
+
+#pragma mark - Memory / Init
+
 - (id)copyWithZone:(NSZone *)zone {
     return self;
 }

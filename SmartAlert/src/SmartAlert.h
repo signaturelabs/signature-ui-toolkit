@@ -30,7 +30,10 @@
 @property (nonatomic) NSInteger maxMessages;
 
 + (id)shared;
-+ (void) showAlert:(NSString*)alert forKey:(NSString *)key;
+
+// made private + (void) showAlert:(NSString*)alert forKey:(NSString *)key;
+
+// TODO: what is "mode"??
 + (void) showAlert:(NSString *)alert forKey:(NSString *)key withMode:(NSString *)mode;
 
 @end
