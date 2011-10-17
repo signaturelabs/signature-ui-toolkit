@@ -31,9 +31,11 @@
 
 + (id)shared;
 
-// made private + (void) showAlert:(NSString*)alert forKey:(NSString *)key;
+/*
+ * alert = @"The string you want the alert to display"
+ * key = @"error" // The unique key you want to group alerts by.
+ */
+ + (void) showAlert:(NSString*)alert forKey:(NSString *)key;
 
-// TODO: what is "mode"??
-+ (void) showAlert:(NSString *)alert forKey:(NSString *)key withMode:(NSString *)mode;
 
 @end

@@ -20,11 +20,10 @@
 
 static SmartAlert *shared = nil;
 
-@interface SmartAlert()
-
-+ (void) showAlert:(NSString*)_alert forKey:(NSString *)key;
-
+@interface SmartAlert() 
++ (void) showNewAlert:(NSString*)alert forKey:(NSString *)key;
 @end
+
 
 @implementation SmartAlert
 
@@ -32,7 +31,7 @@ static SmartAlert *shared = nil;
 
 #pragma mark - Public
 
-+ (void) showAlert:(NSString *)_alert forKey:(NSString *)key withMode:(NSString *)mode {
++ (void) showAlert:(NSString *)_alert forKey:(NSString *)key {
     SmartAlert *sa = [SmartAlert shared];
     if(key == nil) key = @"";
     
@@ -40,7 +39,7 @@ static SmartAlert *shared = nil;
     if(object == nil || [object isKindOfClass:[NSNull class]]){
         
         // Fire off a new alert
-        [SmartAlert showAlert:_alert forKey:key];
+        [SmartAlert showNewAlert:_alert forKey:key];
         
     }else{
         NSMutableDictionary *alert = (NSMutableDictionary *)object;
@@ -91,8 +90,8 @@ static SmartAlert *shared = nil;
 
 
 #pragma mark - Private
-
-+ (void) showAlert:(NSString*)_alert forKey:(NSString *)key {
+// Method creates a new SmartAlertView object
++ (void) showNewAlert:(NSString*)_alert forKey:(NSString *)key {
     SmartAlert *sa = [SmartAlert shared];  
     if(key == nil) key = @"";
     
@@ -155,7 +154,7 @@ static SmartAlert *shared = nil;
 }
 - (id)init {
     if ((self = [super init])) {
-        self.alerts = [[NSMutableDictionary alloc] init];
+        self.alerts = [NSMutableDictionary dictionary];
         self.title = @"SmartAlert";
         self.maxMessages = 5;
     }

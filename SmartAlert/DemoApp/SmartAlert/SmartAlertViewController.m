@@ -53,15 +53,15 @@
     
     
     // DISPLAY ALERTS FOR message KEY
-    [SmartAlert showAlert:@"Test message" forKey:@"message" withMode:@"append"];
-    [SmartAlert showAlert:@"A panda!" forKey:@"message" withMode:@"append"];
-    [SmartAlert showAlert:@"A panda?" forKey:@"message" withMode:@"append"];
-    [SmartAlert showAlert:@"A cougar?" forKey:@"message" withMode:@"append"];
-    [SmartAlert showAlert:@"A lion?" forKey:@"message" withMode:@"append"];
-    [SmartAlert showAlert:@"A dog?" forKey:@"message" withMode:@"append"];
+    [SmartAlert showAlert:@"Test message that is really long and will hopefully overflow" forKey:@"message"];
+    [SmartAlert showAlert:@"A panda!" forKey:@"message"];
+    [SmartAlert showAlert:@"A panda?" forKey:@"message"];
+    [SmartAlert showAlert:@"A cougar?" forKey:@"message"];
+    [SmartAlert showAlert:@"A lion?" forKey:@"message"];
+    [SmartAlert showAlert:@"A dog?" forKey:@"message"];
     
     // DISPLAY ALERT FOR message2 KEY
-    [SmartAlert showAlert:@"3 missed calls" forKey:@"message2" withMode:@"append"];
+    [SmartAlert showAlert:@"3 missed calls" forKey:@"message2"];
 }
 
 - (void)dealloc

@@ -55,8 +55,8 @@
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        self._messages = [[NSMutableDictionary alloc] init];
-        self.labels = [[NSMutableDictionary alloc] init];
+        self._messages = [NSMutableDictionary dictionary];
+        self.labels = [NSMutableDictionary dictionary];
         self.maxMessages = 5;
     }
     return self;
@@ -64,8 +64,14 @@
 
 - (void)setFrame:(CGRect)rect {  
     
-    int max = [self._messages count] > self.maxMessages ? self.maxMessages : [self._messages count];
-    int height = ((max > 0 ? max : 1)*30)+110;
+    int height = 110;
+    
+    for(UIView *inner in self.subviews){
+        
+        if([inner isKindOfClass:[UILabel class]]){
+            height += [(UILabel *)inner numberOfLines]*30;
+        }
+    }
     
     CGRect screen = [[UIScreen mainScreen] bounds];
     
@@ -98,14 +104,25 @@
     if([self.labels count] > 0){
         for(NSString *key in self.labels){
             if(count < maxMessages){
+                
                 UILabel *lbl = (UILabel*)[self.labels objectForKey:key];
-                lbl.frame = CGRectMake(15, newY, 250, 25);
+                
+                int height = 25;
+                int lines = 1;
+                CGSize size = [lbl.text sizeWithFont:[UIFont systemFontOfSize:17.0]];
+                if(size.width > 250){
+                    lines = ceil(size.width/250);
+                    height = height*lines;
+                }
+                
+                lbl.numberOfLines = lines;
+                lbl.frame = CGRectMake(15, newY, 250, height);
                 lbl.textColor = [UIColor whiteColor];
                 lbl.backgroundColor = [UIColor clearColor];
                 lbl.textAlignment = UITextAlignmentCenter;
                 [self addSubview:lbl];
                 
-                newY+=30;
+                newY+=(height+5);
                 
                 count++;
             }
@@ -116,6 +133,7 @@
 
 - (void) dealloc {
     self._messages = nil;
+    self.labels = nil;
     [super dealloc];
 }
 
