@@ -18,8 +18,6 @@
 
 #import "SmartAlert.h"
 
-static SmartAlert *shared = nil;
-
 @interface SmartAlert() 
 + (void) showNewAlert:(NSString*)alert forKey:(NSString *)key;
 @end
@@ -127,31 +125,15 @@ static SmartAlert *shared = nil;
 
 #pragma mark - Singleton Methods
 + (id)shared {
-    @synchronized(self) {
-        if(shared == nil)
-            shared = [[super allocWithZone:NULL] init];
-    }
-    return shared;
-}
-+ (id)allocWithZone:(NSZone *)zone {
-    return [[self shared] retain];
+  static dispatch_once_t pred;
+	static SmartAlert *sharedInstance = nil;
+  
+	dispatch_once(&pred, ^{ sharedInstance = [[SmartAlert alloc] init]; });
+  
+	return sharedInstance;
 }
 
 #pragma mark - Memory / Init
-
-- (id)copyWithZone:(NSZone *)zone {
-    return self;
-}
-- (id)retain {
-    return self;
-}
-- (unsigned)retainCount {
-    return UINT_MAX; // Can never be released;
-}
-
-- (id)autorelease {
-    return self;
-}
 - (id)init {
     if ((self = [super init])) {
         self.alerts = [NSMutableDictionary dictionary];
