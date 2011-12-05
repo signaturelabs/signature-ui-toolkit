@@ -18,20 +18,17 @@
 #import <Foundation/Foundation.h>
 
 
-@interface SmartAlertView : UIAlertView {
-    
-}
+@interface SmartAlertView : UIAlertView 
 
-@property (nonatomic,retain) NSMutableDictionary *_messages;
-@property (nonatomic,retain) NSMutableDictionary *labels;
-@property (nonatomic) NSInteger maxMessages;
+@property (nonatomic, retain) NSMutableDictionary *messages;
+@property (nonatomic, retain) NSMutableDictionary *labels;
+@property (nonatomic, assign) NSInteger maxMessages;
 
 
 - (id)initWithFrame:(CGRect)frame;
 - (void)setFrame:(CGRect)rect;
 - (void)layoutSubviews;
 
-- (void) setMessages:(NSMutableDictionary *)messages;
-- (NSMutableDictionary *) messages;
+- (void)queueMessages:(NSMutableDictionary *)messages;
 
 @end

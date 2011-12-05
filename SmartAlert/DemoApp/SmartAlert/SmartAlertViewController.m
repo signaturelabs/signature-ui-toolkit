@@ -33,41 +33,62 @@
 
 @implementation SmartAlertViewController
 
--(IBAction) showAlert {
+#pragma mark -
+#pragma mark Instance Methods
+// +--------------------------------------------------------------------
+// | Instance Methods
+// +--------------------------------------------------------------------
+
+-(IBAction)showAlert {
     count = 0;
     
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
     [runner addTimer:timer forMode: NSDefaultRunLoopMode];
 }
--(void)timerEvent:(NSTimer *)_timer {
+
+- (void)timerEvent:(NSTimer *)theTimer {
     if(count < 5){
         [self fireAlert];
     }
     count++;
 }
 
--(void) fireAlert {   
-    
+- (void)fireAlert {   
+     
     // SET MAX MESSAGES DISPLAYED IN A ALERT WINDOW
-    [[SmartAlert shared] setMaxMessages:3];
-    
+    [[SmartAlert shared] setMaxMessages:3];    
     
     // DISPLAY ALERTS FOR message KEY
-    [SmartAlert showAlert:@"Test message that is really long and will hopefully overflow" forKey:@"message"];
-    [SmartAlert showAlert:@"A panda!" forKey:@"message"];
-    [SmartAlert showAlert:@"A panda?" forKey:@"message"];
-    [SmartAlert showAlert:@"A cougar?" forKey:@"message"];
-    [SmartAlert showAlert:@"A lion?" forKey:@"message"];
-    [SmartAlert showAlert:@"A dog?" forKey:@"message"];
+    static NSString *kMessagesKey = @"messages";
+    NSArray *alertMessages = [NSArray arrayWithObjects:
+                              NSLocalizedString(@"Test message that is really long and will hopefully overflow", nil),
+                              NSLocalizedString(@"A panda!", nil),
+                              NSLocalizedString(@"A panda?", nil),
+                              NSLocalizedString(@"A cougar?", nil),
+                              NSLocalizedString(@"A lion?", nil),
+                              NSLocalizedString(@"A dog?", nil), nil];
+  
+    for (NSString *alertMessage in alertMessages)
+    {
+      [SmartAlert showAlert:alertMessage forKey:kMessagesKey];
+    }    
     
     // DISPLAY ALERT FOR message2 KEY
-    [SmartAlert showAlert:@"3 missed calls" forKey:@"message2"];
+    static NSString *kMessagesTwoKey = @"messages2";
+    [SmartAlert showAlert:@"3 missed calls" forKey:kMessagesTwoKey];
 }
+
+#pragma mark -
+#pragma mark Memory Management
+// +--------------------------------------------------------------------
+// | Memory Management
+// +--------------------------------------------------------------------
 
 - (void)dealloc
 {
-    [super dealloc];
+    [timer invalidate];
     timer = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +99,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
+#pragma mark -
+#pragma mark View Lifecycle
+// +--------------------------------------------------------------------
+// | View Lifecycle
+// +--------------------------------------------------------------------
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -102,26 +127,15 @@
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 invocation:inv repeats:YES];
 
     // Set the title of the Alert Dialog
-    [[SmartAlert shared] setTitle:@"Smart Alert Demo"];
-    
-    
-    
+    [[SmartAlert shared] setTitle:NSLocalizedString(@"Smart Alert Demo", nil)];
     
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
+#pragma mark -
+#pragma mark Device Orientation & Editing Methods
+// +--------------------------------------------------------------------
+// | Device Orientation & Editing Methods
+// +--------------------------------------------------------------------
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
