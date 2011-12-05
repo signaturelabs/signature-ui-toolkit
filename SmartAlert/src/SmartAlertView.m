@@ -16,28 +16,25 @@
  */
 #import "SmartAlertView.h"
 
+static CGFloat const kFontSize = 17.0;
 
 @implementation SmartAlertView
 
-@synthesize labels,_messages,maxMessages;
+@synthesize labels, messages, maxMessages;
 
-- (void) setMessages:(NSMutableDictionary *)messages {
-    self._messages = messages;
+- (void) queueMessages:(NSMutableDictionary *)theMessages {
+    self.messages = theMessages;
     
     [self setFrame:self.frame];
     
     [self.labels removeAllObjects];
     
-    for(NSString *messageString in self._messages){
-        NSNumber *count = [self._messages objectForKey:messageString];
-        
-        
+    for(NSString *messageString in self.messages){
+        NSNumber *count = [self.messages objectForKey:messageString];        
         UILabel *lbl = [[UILabel alloc] init];
         
         if([count intValue] > 1){
-            NSString *txt = [[NSString alloc] initWithFormat:@"(%i) %@",[count intValue],messageString];
-            lbl.text = txt;
-            [txt release];
+            lbl.text = [NSString stringWithFormat:@"(%i) %@",[count intValue],messageString];
         }else{
             lbl.text = messageString;
         }
@@ -49,27 +46,25 @@
     [self layoutSubviews];
 }
 
-- (NSMutableDictionary *) messages {
-    return self._messages;
-}
-
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        self._messages = [NSMutableDictionary dictionary];
-        self.labels = [NSMutableDictionary dictionary];
-        self.maxMessages = 5;
+        messages = [[NSMutableDictionary alloc] init];
+        labels = [[NSMutableDictionary alloc] init];
+        maxMessages = 5;
     }
     return self;
 }
 
 - (void)setFrame:(CGRect)rect {  
     
-    int height = 110;
+    NSUInteger height = 110;
+    NSUInteger kHeightPadding = 30;
     
     for(UIView *inner in self.subviews){
         
-        if([inner isKindOfClass:[UILabel class]]){
-            height += [(UILabel *)inner numberOfLines]*30;
+        BOOL viewIsALabel = [inner isKindOfClass:[UILabel class]];
+        if(viewIsALabel == YES){
+            height += [(UILabel *)inner numberOfLines]*kHeightPadding;
         }
     }
     
@@ -80,15 +75,19 @@
 }
 
 - (void)layoutSubviews {
+    static NSUInteger kYValuePadding = 15;
     
     for (UIView *view in self.subviews) {
         
-        if ([[[view class] description] isEqualToString:@"UIThreePartButton"]) {
-            view.frame = CGRectMake(view.frame.origin.x, self.bounds.size.height - view.frame.size.height - 15, view.frame.size.width, view.frame.size.height);
+        static NSString *kThreePartButton = @"UIThreePartButton";
+        BOOL viewClassIsAThreePartButton = [[[view class] description] isEqualToString:kThreePartButton]; // jww: This is likely sketchy for App Store review.
+        if (viewClassIsAThreePartButton == YES) {
+            view.frame = CGRectMake(view.frame.origin.x, self.bounds.size.height - view.frame.size.height - kYValuePadding, view.frame.size.width, view.frame.size.height);
             
         }
         
-        if([view isKindOfClass:[UILabel class]]){
+        BOOL viewIsALabel = [view isKindOfClass:[UILabel class]];
+        if(viewIsALabel == YES){
             UILabel *l = (UILabel *)view;
             if(![l.text isEqualToString:self.title]){
                 // REMOVE UILabels except the title
@@ -97,32 +96,34 @@
         }
     }
     
-    int newY = 45;
-    
-    int count = 0;
-    
+    NSUInteger newX = 15;
+    NSUInteger newY = 45;    
+    NSUInteger count = 0;
+    NSUInteger kDesiredWidth = 250;
+    NSUInteger kHeightPadding = 5;
+  
     if([self.labels count] > 0){
         for(NSString *key in self.labels){
-            if(count < maxMessages){
+            if(count < self.maxMessages){
                 
-                UILabel *lbl = (UILabel*)[self.labels objectForKey:key];
+                UILabel *currentLabel = (UILabel*)[self.labels objectForKey:key];
                 
                 int height = 25;
                 int lines = 1;
-                CGSize size = [lbl.text sizeWithFont:[UIFont systemFontOfSize:17.0]];
-                if(size.width > 250){
-                    lines = ceil(size.width/250);
+                CGSize size = [currentLabel.text sizeWithFont:[UIFont systemFontOfSize:kFontSize]];
+                if(size.width > kDesiredWidth){
+                    lines = ceil(size.width/kDesiredWidth);
                     height = height*lines;
                 }
                 
-                lbl.numberOfLines = lines;
-                lbl.frame = CGRectMake(15, newY, 250, height);
-                lbl.textColor = [UIColor whiteColor];
-                lbl.backgroundColor = [UIColor clearColor];
-                lbl.textAlignment = UITextAlignmentCenter;
-                [self addSubview:lbl];
+                currentLabel.numberOfLines = lines;
+                currentLabel.frame = CGRectMake(newX, newY, kDesiredWidth, height);
+                currentLabel.textColor = [UIColor whiteColor];
+                currentLabel.backgroundColor = [UIColor clearColor];
+                currentLabel.textAlignment = UITextAlignmentCenter;
+                [self addSubview:currentLabel];
                 
-                newY+=(height+5);
+                newY+=(height + kHeightPadding);
                 
                 count++;
             }
@@ -132,8 +133,8 @@
 
 
 - (void) dealloc {
-    self._messages = nil;
-    self.labels = nil;
+    [messages release]; messages = nil;
+    [labels release]; labels = nil;
     [super dealloc];
 }
 

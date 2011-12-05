@@ -18,16 +18,14 @@
 #import <Foundation/Foundation.h>
 #import "SmartAlertView.h"
 
-#define kSmartAlertAppend 1;
-#define kSmartAlertReplace 2;
+static const NSInteger kSmartAlertAppend = 1;
+static const NSInteger kSmartAlertReplace = 2;
 
-@interface SmartAlert : NSObject <UIAlertViewDelegate> {
-    
-}
+@interface SmartAlert : NSObject <UIAlertViewDelegate> 
 
 @property (retain) NSMutableDictionary *alerts;
 @property (retain) NSString *title;
-@property (nonatomic) NSInteger maxMessages;
+@property (nonatomic, assign) NSInteger maxMessages;
 
 + (id)shared;
 
