@@ -142,10 +142,10 @@
     }
     return self;
 }
-- (void)dealloc {
+- (void)dealloc {    
+    [alerts release]; alerts = nil;
+    [title release]; title = nil;
     [super dealloc];
-    self.alerts = nil;
-    self.title = nil;
 }
 
 
