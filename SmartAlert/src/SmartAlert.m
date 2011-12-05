@@ -136,9 +136,9 @@
 #pragma mark - Memory / Init
 - (id)init {
     if ((self = [super init])) {
-        self.alerts = [NSMutableDictionary dictionary];
-        self.title = @"SmartAlert";
-        self.maxMessages = 5;
+        alerts = [[NSMutableDictionary alloc] init];
+        title = [[NSString alloc] initWithString:@"SmartAlert"];
+        maxMessages = 5;
     }
     return self;
 }
