@@ -18,8 +18,12 @@
 
 #import "SmartAlert.h"
 
+static const NSString * kSmartAlertAlertKey = @"alert";
+static const NSString * kSmartAlertMessagesKey = @"messages";
+
 @interface SmartAlert() 
-+ (void) showNewAlert:(NSString*)alert forKey:(NSString *)key;
++ (void) showNewAlert:(NSString *)alert forKey:(NSString *)key;
+- (BOOL)objectIsNillOrAnNSNull:(id)object;
 @end
 
 
@@ -29,42 +33,47 @@
 
 #pragma mark - Public
 
-+ (void) showAlert:(NSString *)_alert forKey:(NSString *)key {
-    SmartAlert *sa = [SmartAlert shared];
-    if(key == nil) key = @"";
++ (void) showAlert:(NSString *)theAlert forKey:(NSString *)theKey {
+    SmartAlert *smartAlertInstance = [SmartAlert shared];
+  
+    if(theKey == nil) 
+    {
+      theKey = @"";
+    }
     
-    id object = [sa.alerts objectForKey:key];
-    if(object == nil || [object isKindOfClass:[NSNull class]]){
+    
+    id object = [[smartAlertInstance alerts] objectForKey:theKey];
+    if([smartAlertInstance objectIsNillOrAnNSNull:object] == YES){
         
         // Fire off a new alert
-        [SmartAlert showNewAlert:_alert forKey:key];
+        [SmartAlert showNewAlert:theAlert forKey:theKey];
         
     }else{
         NSMutableDictionary *alert = (NSMutableDictionary *)object;
         
-        SmartAlertView *alertView = [alert objectForKey:@"alert"];
+        SmartAlertView *alertView = [alert objectForKey:kSmartAlertAlertKey];
         
-        NSMutableDictionary *messages = [alert objectForKey:@"messages"];
+        NSMutableDictionary *messages = [alert objectForKey:kSmartAlertMessagesKey];
         
-        id message = [messages objectForKey:_alert];
-        if(message == nil || [message isKindOfClass:[NSNull class]]){
+        id message = [messages objectForKey:theAlert];
+        if([smartAlertInstance objectIsNillOrAnNSNull:message] == YES) {
             
             // New Message
-            [messages setObject:[NSNumber numberWithInt:1] forKey:_alert];
+            [messages setObject:[NSNumber numberWithInt:1] forKey:theAlert];
             
         }else{
             
             NSNumber *count = (NSNumber *)message;
             count = [NSNumber numberWithInt:[count intValue]+1];
-            [messages setObject:count forKey:_alert];
+            [messages setObject:count forKey:theAlert];
             
         }
         
         [alertView setMessages:messages];
         
-        [alert setObject:alertView forKey:@"alert"];
+        [alert setObject:alertView forKey:kSmartAlertAlertKey];
         
-        [sa.alerts setObject:alert forKey:key];
+        [[smartAlertInstance alerts] setObject:alert forKey:theKey];
         
     }
 
@@ -74,9 +83,10 @@
 
 
 #pragma mark - SmartAlertViewDelegate
-- (void) alertView:(SmartAlertView *)_alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void) alertView:(SmartAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex {
     
-    if(buttonIndex == 0){ // Cancel
+  static NSInteger kCancelButtonIndex = 0;
+    if(theButtonIndex == kCancelButtonIndex){ // Cancel
         [self.alerts removeAllObjects];
     }
 }
@@ -89,31 +99,33 @@
 
 #pragma mark - Private
 // Method creates a new SmartAlertView object
-+ (void) showNewAlert:(NSString*)_alert forKey:(NSString *)key {
-    SmartAlert *sa = [SmartAlert shared];  
-    if(key == nil) key = @"";
++ (void) showNewAlert:(NSString*)theAlert forKey:(NSString *)theKey {
+    SmartAlert *smartAlertInstance = [SmartAlert shared];  
+    if(theKey == nil) 
+    {
+      theKey = @"";
+    }
     
     // Pull object
-    id test = [sa.alerts objectForKey:key];
-    
-    if(test == nil || [test isKindOfClass:[NSNull class]]){
+    id test = [[smartAlertInstance alerts] objectForKey:theKey];
+    if([smartAlertInstance objectIsNillOrAnNSNull:test] == YES){
         
         NSMutableDictionary *alert = [NSMutableDictionary dictionary];
         
         NSMutableDictionary *messages = [NSMutableDictionary dictionary];
         
-        [messages setObject:[NSNumber numberWithInt:1] forKey:_alert];
+        [messages setObject:[NSNumber numberWithInt:1] forKey:theAlert];
         
-        SmartAlertView *alertView = [[SmartAlertView alloc] initWithTitle:sa.title message:@"" delegate:sa cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alertView setMaxMessages:sa.maxMessages];
+        SmartAlertView *alertView = [[SmartAlertView alloc] initWithTitle:smartAlertInstance.title message:@"" delegate:smartAlertInstance cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil];
+        [alertView setMaxMessages:smartAlertInstance.maxMessages];
         
         [alertView setMessages:messages];
         [alertView show];
         
-        [alert setObject:alertView forKey:@"alert"];
-        [alert setObject:messages forKey:@"messages"];
+        [alert setObject:alertView forKey:kSmartAlertAlertKey];
+        [alert setObject:messages forKey:kSmartAlertMessagesKey];
         
-        [sa.alerts setObject:alert forKey:key];
+        [[smartAlertInstance alerts] setObject:alert forKey:theKey];
         
         [alertView release];
     }
@@ -121,6 +133,13 @@
     
 }
 
+
+- (BOOL)objectIsNillOrAnNSNull:(id)theObject
+{
+  BOOL objectIsNil = (theObject == nil);
+  BOOL objectClassIsNSNull = ([theObject isKindOfClass:[NSNull class]]);
+  return (objectIsNil || objectClassIsNSNull);
+}
 
 
 #pragma mark - Singleton Methods
@@ -137,7 +156,7 @@
 - (id)init {
     if ((self = [super init])) {
         alerts = [[NSMutableDictionary alloc] init];
-        title = [[NSString alloc] initWithString:@"SmartAlert"];
+        title = [[NSString alloc] initWithString:NSLocalizedString(@"SmartAlert", nil)];
         maxMessages = 5;
     }
     return self;
