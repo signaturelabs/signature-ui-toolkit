@@ -19,25 +19,21 @@
 
 @implementation SmartAlertView
 
-@synthesize labels,_messages,maxMessages;
+@synthesize labels, messages, maxMessages;
 
-- (void) setMessages:(NSMutableDictionary *)messages {
-    self._messages = messages;
+- (void) queueMessages:(NSMutableDictionary *)theMessages {
+    self.messages = theMessages;
     
     [self setFrame:self.frame];
     
     [self.labels removeAllObjects];
     
-    for(NSString *messageString in self._messages){
-        NSNumber *count = [self._messages objectForKey:messageString];
-        
-        
+    for(NSString *messageString in self.messages){
+        NSNumber *count = [self.messages objectForKey:messageString];        
         UILabel *lbl = [[UILabel alloc] init];
         
         if([count intValue] > 1){
-            NSString *txt = [[NSString alloc] initWithFormat:@"(%i) %@",[count intValue],messageString];
-            lbl.text = txt;
-            [txt release];
+            lbl.text = [NSString stringWithFormat:@"(%i) %@",[count intValue],messageString];
         }else{
             lbl.text = messageString;
         }
@@ -49,15 +45,11 @@
     [self layoutSubviews];
 }
 
-- (NSMutableDictionary *) messages {
-    return self._messages;
-}
-
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        self._messages = [NSMutableDictionary dictionary];
-        self.labels = [NSMutableDictionary dictionary];
-        self.maxMessages = 5;
+        messages = [[NSMutableDictionary alloc] init];
+        labels = [[NSMutableDictionary alloc] init];
+        maxMessages = 5;
     }
     return self;
 }
@@ -132,8 +124,8 @@
 
 
 - (void) dealloc {
-    self._messages = nil;
-    self.labels = nil;
+    [messages release]; messages = nil;
+    [labels release]; labels = nil;
     [super dealloc];
 }
 

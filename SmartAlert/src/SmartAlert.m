@@ -69,7 +69,7 @@ static const NSString * kSmartAlertMessagesKey = @"messages";
             
         }
         
-        [alertView setMessages:messages];
+        [alertView queueMessages:messages];
         
         [alert setObject:alertView forKey:kSmartAlertAlertKey];
         
@@ -119,7 +119,7 @@ static const NSString * kSmartAlertMessagesKey = @"messages";
         SmartAlertView *alertView = [[SmartAlertView alloc] initWithTitle:smartAlertInstance.title message:@"" delegate:smartAlertInstance cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil];
         [alertView setMaxMessages:smartAlertInstance.maxMessages];
         
-        [alertView setMessages:messages];
+        [alertView queueMessages:messages];
         [alertView show];
         
         [alert setObject:alertView forKey:kSmartAlertAlertKey];
