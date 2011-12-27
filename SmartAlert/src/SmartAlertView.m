@@ -16,6 +16,7 @@
  */
 #import "SmartAlertView.h"
 
+
 static CGFloat const kFontSize = 17.0;
 
 @implementation SmartAlertView
@@ -75,16 +76,9 @@ static CGFloat const kFontSize = 17.0;
 }
 
 - (void)layoutSubviews {
-    static NSUInteger kYValuePadding = 15;
+    [super layoutSubviews];
     
     for (UIView *view in self.subviews) {
-        
-        static NSString *kThreePartButton = @"UIThreePartButton";
-        BOOL viewClassIsAThreePartButton = [[[view class] description] isEqualToString:kThreePartButton]; // jww: This is likely sketchy for App Store review.
-        if (viewClassIsAThreePartButton == YES) {
-            view.frame = CGRectMake(view.frame.origin.x, self.bounds.size.height - view.frame.size.height - kYValuePadding, view.frame.size.width, view.frame.size.height);
-            
-        }
         
         BOOL viewIsALabel = [view isKindOfClass:[UILabel class]];
         if(viewIsALabel == YES){
@@ -101,6 +95,7 @@ static CGFloat const kFontSize = 17.0;
     NSUInteger count = 0;
     NSUInteger kDesiredWidth = 250;
     NSUInteger kHeightPadding = 5;
+    NSUInteger kBoundsHeightPadding = 20;
   
     if([self.labels count] > 0){
         for(NSString *key in self.labels){
@@ -129,6 +124,21 @@ static CGFloat const kFontSize = 17.0;
             }
         }
     }
+    for (UIView *view in self.subviews) {
+        
+        static NSString *kThreePartButton = @"UIThreePartButton";
+        BOOL viewClassIsAThreePartButton = [[[view class] description] isEqualToString:kThreePartButton]; // jww: This is likely sketchy for App Store review.
+        if (viewClassIsAThreePartButton == YES) {
+            view.frame = CGRectMake(view.frame.origin.x, newY+kHeightPadding, view.frame.size.width, view.frame.size.height);
+            
+            CGRect rect = self.bounds;
+            rect.size.height = newY+view.frame.size.height+kBoundsHeightPadding;
+            self.bounds = rect;
+        }
+        
+        
+    }
+    
 }
 
 
