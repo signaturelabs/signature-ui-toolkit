@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>userInfo</key>
+	<dict>
+		<key>aps</key>
+		<dict>
+			<key>alert</key>
+			<string>Welcome to the store.</string>
+			<key>sound</key>
+			<string>default</string>
+		</dict>
+		<key>r</key>
+		<string>nm</string>
+		<key>s</key>
+		<string>158</string>
+		<key>tu</key>
+		<string>238</string>
+		<key>t</key>
+		<string>1</string>
+	</dict>
+</dict>
+</plist>

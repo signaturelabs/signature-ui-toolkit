@@ -1,0 +1,305 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		108DF3A514CB6CDB0051BDC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108DF3A414CB6CDB0051BDC9 /* UIKit.framework */; };
+		108DF3A714CB6CDB0051BDC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108DF3A614CB6CDB0051BDC9 /* Foundation.framework */; };
+		108DF3A914CB6CDB0051BDC9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108DF3A814CB6CDB0051BDC9 /* CoreGraphics.framework */; };
+		108DF3AF14CB6CDB0051BDC9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 108DF3AD14CB6CDB0051BDC9 /* InfoPlist.strings */; };
+		108DF3B114CB6CDB0051BDC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 108DF3B014CB6CDB0051BDC9 /* main.m */; };
+		108DF3B514CB6CDB0051BDC9 /* SGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 108DF3B414CB6CDB0051BDC9 /* SGAppDelegate.m */; };
+		108DF3B814CB6CDB0051BDC9 /* SGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 108DF3B714CB6CDB0051BDC9 /* SGViewController.m */; };
+		108DF3BB14CB6CDB0051BDC9 /* SGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108DF3B914CB6CDB0051BDC9 /* SGViewController.xib */; };
+		108DF3C714CB6E6F0051BDC9 /* SGPushNotificationSimulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 108DF3C614CB6E6F0051BDC9 /* SGPushNotificationSimulator.m */; };
+		108DF3D814CB708A0051BDC9 /* in-store-notification.plist in Resources */ = {isa = PBXBuildFile; fileRef = 108DF3D714CB708A0051BDC9 /* in-store-notification.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		108DF3A014CB6CDA0051BDC9 /* APNTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APNTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		108DF3A414CB6CDB0051BDC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		108DF3A614CB6CDB0051BDC9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		108DF3A814CB6CDB0051BDC9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		108DF3AC14CB6CDB0051BDC9 /* APNTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "APNTest-Info.plist"; sourceTree = "<group>"; };
+		108DF3AE14CB6CDB0051BDC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		108DF3B014CB6CDB0051BDC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		108DF3B214CB6CDB0051BDC9 /* APNTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APNTest-Prefix.pch"; sourceTree = "<group>"; };
+		108DF3B314CB6CDB0051BDC9 /* SGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGAppDelegate.h; sourceTree = "<group>"; };
+		108DF3B414CB6CDB0051BDC9 /* SGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGAppDelegate.m; sourceTree = "<group>"; };
+		108DF3B614CB6CDB0051BDC9 /* SGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGViewController.h; sourceTree = "<group>"; };
+		108DF3B714CB6CDB0051BDC9 /* SGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGViewController.m; sourceTree = "<group>"; };
+		108DF3BA14CB6CDB0051BDC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SGViewController.xib; sourceTree = "<group>"; };
+		108DF3C514CB6E6F0051BDC9 /* SGPushNotificationSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGPushNotificationSimulator.h; path = src/SGPushNotificationSimulator.h; sourceTree = SOURCE_ROOT; };
+		108DF3C614CB6E6F0051BDC9 /* SGPushNotificationSimulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SGPushNotificationSimulator.m; path = src/SGPushNotificationSimulator.m; sourceTree = SOURCE_ROOT; };
+		108DF3D714CB708A0051BDC9 /* in-store-notification.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "in-store-notification.plist"; path = "Notifications/in-store-notification.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		108DF39D14CB6CDA0051BDC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				108DF3A514CB6CDB0051BDC9 /* UIKit.framework in Frameworks */,
+				108DF3A714CB6CDB0051BDC9 /* Foundation.framework in Frameworks */,
+				108DF3A914CB6CDB0051BDC9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		108DF39514CB6CDA0051BDC9 = {
+			isa = PBXGroup;
+			children = (
+				108DF3AA14CB6CDB0051BDC9 /* APNTest */,
+				108DF3A314CB6CDB0051BDC9 /* Frameworks */,
+				108DF3A114CB6CDA0051BDC9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		108DF3A114CB6CDA0051BDC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				108DF3A014CB6CDA0051BDC9 /* APNTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		108DF3A314CB6CDB0051BDC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				108DF3A414CB6CDB0051BDC9 /* UIKit.framework */,
+				108DF3A614CB6CDB0051BDC9 /* Foundation.framework */,
+				108DF3A814CB6CDB0051BDC9 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		108DF3AA14CB6CDB0051BDC9 /* APNTest */ = {
+			isa = PBXGroup;
+			children = (
+				108DF3C414CB6DF80051BDC9 /* APNTestFramework */,
+				108DF3C114CB6CEA0051BDC9 /* Test Notifications */,
+				108DF3B314CB6CDB0051BDC9 /* SGAppDelegate.h */,
+				108DF3B414CB6CDB0051BDC9 /* SGAppDelegate.m */,
+				108DF3B614CB6CDB0051BDC9 /* SGViewController.h */,
+				108DF3B714CB6CDB0051BDC9 /* SGViewController.m */,
+				108DF3B914CB6CDB0051BDC9 /* SGViewController.xib */,
+				108DF3AB14CB6CDB0051BDC9 /* Supporting Files */,
+			);
+			path = APNTest;
+			sourceTree = "<group>";
+		};
+		108DF3AB14CB6CDB0051BDC9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				108DF3AC14CB6CDB0051BDC9 /* APNTest-Info.plist */,
+				108DF3AD14CB6CDB0051BDC9 /* InfoPlist.strings */,
+				108DF3B014CB6CDB0051BDC9 /* main.m */,
+				108DF3B214CB6CDB0051BDC9 /* APNTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		108DF3C114CB6CEA0051BDC9 /* Test Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				108DF3D714CB708A0051BDC9 /* in-store-notification.plist */,
+			);
+			name = "Test Notifications";
+			sourceTree = "<group>";
+		};
+		108DF3C414CB6DF80051BDC9 /* APNTestFramework */ = {
+			isa = PBXGroup;
+			children = (
+				108DF3C514CB6E6F0051BDC9 /* SGPushNotificationSimulator.h */,
+				108DF3C614CB6E6F0051BDC9 /* SGPushNotificationSimulator.m */,
+			);
+			name = APNTestFramework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		108DF39F14CB6CDA0051BDC9 /* APNTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 108DF3BE14CB6CDB0051BDC9 /* Build configuration list for PBXNativeTarget "APNTest" */;
+			buildPhases = (
+				108DF39C14CB6CDA0051BDC9 /* Sources */,
+				108DF39D14CB6CDA0051BDC9 /* Frameworks */,
+				108DF39E14CB6CDA0051BDC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APNTest;
+			productName = APNTest;
+			productReference = 108DF3A014CB6CDA0051BDC9 /* APNTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		108DF39714CB6CDA0051BDC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 108DF39A14CB6CDA0051BDC9 /* Build configuration list for PBXProject "APNTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 108DF39514CB6CDA0051BDC9;
+			productRefGroup = 108DF3A114CB6CDA0051BDC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				108DF39F14CB6CDA0051BDC9 /* APNTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		108DF39E14CB6CDA0051BDC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				108DF3AF14CB6CDB0051BDC9 /* InfoPlist.strings in Resources */,
+				108DF3BB14CB6CDB0051BDC9 /* SGViewController.xib in Resources */,
+				108DF3D814CB708A0051BDC9 /* in-store-notification.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		108DF39C14CB6CDA0051BDC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				108DF3B114CB6CDB0051BDC9 /* main.m in Sources */,
+				108DF3B514CB6CDB0051BDC9 /* SGAppDelegate.m in Sources */,
+				108DF3B814CB6CDB0051BDC9 /* SGViewController.m in Sources */,
+				108DF3C714CB6E6F0051BDC9 /* SGPushNotificationSimulator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		108DF3AD14CB6CDB0051BDC9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				108DF3AE14CB6CDB0051BDC9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		108DF3B914CB6CDB0051BDC9 /* SGViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				108DF3BA14CB6CDB0051BDC9 /* en */,
+			);
+			name = SGViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		108DF3BC14CB6CDB0051BDC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		108DF3BD14CB6CDB0051BDC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		108DF3BF14CB6CDB0051BDC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "APNTest/APNTest-Prefix.pch";
+				INFOPLIST_FILE = "APNTest/APNTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		108DF3C014CB6CDB0051BDC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "APNTest/APNTest-Prefix.pch";
+				INFOPLIST_FILE = "APNTest/APNTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		108DF39A14CB6CDA0051BDC9 /* Build configuration list for PBXProject "APNTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				108DF3BC14CB6CDB0051BDC9 /* Debug */,
+				108DF3BD14CB6CDB0051BDC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		108DF3BE14CB6CDB0051BDC9 /* Build configuration list for PBXNativeTarget "APNTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				108DF3BF14CB6CDB0051BDC9 /* Debug */,
+				108DF3C014CB6CDB0051BDC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 108DF39714CB6CDA0051BDC9 /* Project object */;
+}
