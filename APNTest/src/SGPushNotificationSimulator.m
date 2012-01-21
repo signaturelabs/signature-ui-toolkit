@@ -21,7 +21,7 @@
     id appDelegate = [application delegate];
     
     NSDictionary *appInfo = [[NSBundle mainBundle] infoDictionary];
-    NSString *appName = [appInfo objectForKey:@"CFBundleName"];
+    NSString *appName = [appInfo objectForKey:@"CFBundleDisplayName"];
     
     SGPushNotificationSimulator *sim = [[SGPushNotificationSimulator alloc] init];
     
@@ -48,11 +48,13 @@
                                                    otherButtonTitles: nil];
                 [al show];
                 [al release];
+                
+                
+                [appDelegate application:application didReceiveRemoteNotification:userInfo];
             }
         }
     }
     
-    [appDelegate application:application didReceiveRemoteNotification:nil];
     [sim release];
 }
 - (NSDictionary *)userInfoDictionaryWithNotificationName:(NSString *)name {
