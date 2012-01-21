@@ -20,39 +20,13 @@
     UIApplication *application = [UIApplication sharedApplication];
     id appDelegate = [application delegate];
     
-    NSDictionary *appInfo = [[NSBundle mainBundle] infoDictionary];
-    NSString *appName = [appInfo objectForKey:@"CFBundleDisplayName"];
-    
     SGPushNotificationSimulator *sim = [[SGPushNotificationSimulator alloc] init];
     
     
     NSDictionary *userInfo = [sim userInfoDictionaryWithNotificationName:notificationName];
     
     if(userInfo != nil) {
-        id aps = [userInfo objectForKey:@"aps"];
-        NSLog(@"Getting APS");
-        
-        if(aps != nil && [aps isKindOfClass:[NSDictionary class]]) {
-            NSDictionary *apsDict = (NSDictionary *)aps;
-            
-            id alert = [apsDict objectForKey:@"alert"];
-            if(alert != nil) {
-                NSString *alertMessage = (NSString *)alert;
-                
-                [[[NSBundle mainBundle] infoDictionary]   objectForKey:@"CFBundleName"];
-                
-                UIAlertView *al = [[UIAlertView alloc] initWithTitle:appName 
-                                                             message:alertMessage 
-                                                            delegate:nil 
-                                                   cancelButtonTitle:@"OK" 
-                                                   otherButtonTitles: nil];
-                [al show];
-                [al release];
-                
-                
-                [appDelegate application:application didReceiveRemoteNotification:userInfo];
-            }
-        }
+       [appDelegate application:application didReceiveRemoteNotification:userInfo];
     }
     
     [sim release];
