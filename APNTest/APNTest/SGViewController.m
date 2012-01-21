@@ -41,7 +41,7 @@
 {
     [super viewDidAppear:animated];
     
-    [SGPushNotificationSimulator simulatePushNotificationWithName:@"in-store-notification"];
+    [SGPushNotificationSimulator simulatePushNotificationWithName:@"test-notification"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

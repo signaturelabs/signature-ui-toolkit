@@ -7,18 +7,12 @@
 		<key>aps</key>
 		<dict>
 			<key>alert</key>
-			<string>Welcome to the store.</string>
+			<string>This is our test push notification.</string>
 			<key>sound</key>
 			<string>default</string>
 		</dict>
-		<key>r</key>
-		<string>nm</string>
-		<key>s</key>
-		<string>158</string>
-		<key>tu</key>
-		<string>238</string>
-		<key>t</key>
-		<string>1</string>
+		<key>custom</key>
+		<string>You can put custom entries in this dictionary that match the APN attributes your server sends.</string>
 	</dict>
 </dict>
 </plist>

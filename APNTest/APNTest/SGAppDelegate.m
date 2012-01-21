@@ -24,7 +24,35 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    NSLog(@"PUSH NOTIIFICATION RECEIVED");
+    // Simulator specific code
+    
+    id aps = [userInfo objectForKey:@"aps"];
+    
+    if(aps != nil && [aps isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *apsDict = (NSDictionary *)aps;
+        
+        id alert = [apsDict objectForKey:@"alert"];
+        if(alert != nil) {
+            
+            NSDictionary *appInfo = [[NSBundle mainBundle] infoDictionary];
+            NSString *appName = [appInfo objectForKey:@"CFBundleDisplayName"];
+            
+            NSString *alertMessage = (NSString *)alert;
+            
+            [[[NSBundle mainBundle] infoDictionary]   objectForKey:@"CFBundleName"];
+            
+            UIAlertView *al = [[UIAlertView alloc] initWithTitle:appName 
+                                                         message:alertMessage 
+                                                        delegate:nil 
+                                               cancelButtonTitle:@"OK" 
+                                               otherButtonTitles: nil];
+            [al show];
+            [al release];
+            
+            
+        }
+    }
+    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

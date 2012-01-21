@@ -16,7 +16,7 @@
 		108DF3B814CB6CDB0051BDC9 /* SGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 108DF3B714CB6CDB0051BDC9 /* SGViewController.m */; };
 		108DF3BB14CB6CDB0051BDC9 /* SGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108DF3B914CB6CDB0051BDC9 /* SGViewController.xib */; };
 		108DF3C714CB6E6F0051BDC9 /* SGPushNotificationSimulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 108DF3C614CB6E6F0051BDC9 /* SGPushNotificationSimulator.m */; };
-		108DF3D814CB708A0051BDC9 /* in-store-notification.plist in Resources */ = {isa = PBXBuildFile; fileRef = 108DF3D714CB708A0051BDC9 /* in-store-notification.plist */; };
+		108DF3D814CB708A0051BDC9 /* test-notification.plist in Resources */ = {isa = PBXBuildFile; fileRef = 108DF3D714CB708A0051BDC9 /* test-notification.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		108DF3BA14CB6CDB0051BDC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SGViewController.xib; sourceTree = "<group>"; };
 		108DF3C514CB6E6F0051BDC9 /* SGPushNotificationSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGPushNotificationSimulator.h; path = src/SGPushNotificationSimulator.h; sourceTree = SOURCE_ROOT; };
 		108DF3C614CB6E6F0051BDC9 /* SGPushNotificationSimulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SGPushNotificationSimulator.m; path = src/SGPushNotificationSimulator.m; sourceTree = SOURCE_ROOT; };
-		108DF3D714CB708A0051BDC9 /* in-store-notification.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "in-store-notification.plist"; path = "Notifications/in-store-notification.plist"; sourceTree = SOURCE_ROOT; };
+		108DF3D714CB708A0051BDC9 /* test-notification.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "test-notification.plist"; path = "Notifications/test-notification.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 		108DF3C114CB6CEA0051BDC9 /* Test Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				108DF3D714CB708A0051BDC9 /* in-store-notification.plist */,
+				108DF3D714CB708A0051BDC9 /* test-notification.plist */,
 			);
 			name = "Test Notifications";
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 			files = (
 				108DF3AF14CB6CDB0051BDC9 /* InfoPlist.strings in Resources */,
 				108DF3BB14CB6CDB0051BDC9 /* SGViewController.xib in Resources */,
-				108DF3D814CB708A0051BDC9 /* in-store-notification.plist in Resources */,
+				108DF3D814CB708A0051BDC9 /* test-notification.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +298,7 @@
 				108DF3C014CB6CDB0051BDC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
