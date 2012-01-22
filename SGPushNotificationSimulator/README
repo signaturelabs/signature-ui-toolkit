@@ -1,0 +1,53 @@
+SGPushNotificationSimulator
+
+The purpose of SGPushNotificationSimulator is to simulate receiving a push notification from your app's server backend.
+
+Implementation is very easy.  Simply drop the following files into your XCode project:
+
+SGPushNotificationSimulator.h
+SGPushNotificationSimulator.m
+
+SGPushNotificationSimulator supports virtually any push notification message that your application uses.  To do this you simply save the push notification parameters into a plist file.
+
+For each notification create a plist file using the name of the notification you wish to test.
+
+Example:
+
+test-notification.plist
+
+Contents:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>userInfo</key>
+        <dict>
+                <key>aps</key>
+                <dict>
+                        <key>alert</key>
+                        <string>This is our test push notification.</string>
+                        <key>sound</key>
+                        <string>default</string>
+                </dict>
+                <key>custom</key>
+                <string>You can put custom entries in this dictionary that match the APN attributes your server sends.</string>
+        </dict>
+</dict>
+</plist>
+
+
+The aps dictionary contains the alert message and sound information to present a UIAlertView.  This is required by Apple and the aps key is reserved.
+
+You can then add the custom key/values to the plist that your application uses to act upon the push notification.
+
+
+# Testing the notification
+
+Simply import SGPushNotificationSimulator.h into the .m file your going to call it from.
+
+Call the following:
+
+[SGPushNotificationSimulator simulatePushNotificationWithName:@"test-notification"];
+
+"test-notification" is the same as the name we used when creating the .plist file.
+
