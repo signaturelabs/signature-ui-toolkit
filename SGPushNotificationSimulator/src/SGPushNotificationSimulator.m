@@ -37,8 +37,7 @@
     if([plist isKindOfClass:[NSDictionary class]]) {
         NSDictionary *plistDict = (NSDictionary *)plist;
         id userInfo = [plistDict objectForKey:@"userInfo"];
-        if([userInfo isKindOfClass:[NSDictionary class]])
-        {
+        if([userInfo isKindOfClass:[NSDictionary class]]) {
             NSDictionary *userInfoDict = (NSDictionary *)userInfo;
             return userInfoDict;
         }
@@ -57,8 +56,8 @@
 
     plist = [NSPropertyListSerialization propertyListFromData:plistData mutabilityOption:NSPropertyListImmutable format:&format errorDescription:&error];  
     if (!plist) {  
-    NSLog(@"Error reading plist from file '%s', error = '%s'", [localizedPath UTF8String], [error UTF8String]);  
-    [error release];  
+        NSLog(@"Error reading plist from file '%s', error = '%s'", [localizedPath UTF8String], [error UTF8String]);  
+        [error release];  
     }  
 
     return plist;  
