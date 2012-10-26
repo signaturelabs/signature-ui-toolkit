@@ -30,6 +30,18 @@
     
     [sim release];
 }
+
++ (void)simulatePushNotificationWithDictionary:(NSDictionary *)userInfo {
+    
+    UIApplication *application = [UIApplication sharedApplication];
+    id appDelegate = [application delegate];
+    
+    if(userInfo != nil) {
+        [appDelegate application:application didReceiveRemoteNotification:userInfo];
+    }
+    
+}
+
 - (NSDictionary *)userInfoDictionaryWithNotificationName:(NSString *)name {
     // Load/Parse the plist file for the notification
     id plist = [self plistWithName:name];

@@ -10,6 +10,8 @@
 
 @interface SGPushNotificationSimulator : NSObject
 
++ (void)simulatePushNotificationWithDictionary:(NSDictionary *)userInfo;
+
 + (void)simulatePushNotificationWithName:(NSString *)notificationName;
 
 @end
